@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+@property --bg-edge {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ebe2cc;
+}
+
+@property --bg-mid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e0c887;
+}
+
+.light {
+  --bg-edge: rgba(235, 226, 204, 1);
+  --bg-mid: rgba(224, 200, 135, 1);
+  --page-app: #ded6c1;
+  --page-box-shadow: 10px 10px 10px rgba(235, 226, 204, 1);
+  --page-font: #2b241e;
+  --page-h1: #3a332c;
+  --page-controls: #ffffff;
+  --page-controls-text: #1f1a15;
+  --page-controls-border: #ded6c1;
+  --page-controls-hover: #b7b09e;
+  --page-controls-hover-text: #1f1a15;
+  --gain: #15803d;
+  --loss: #b91c1c;
+}
+
+.dark {
+  --bg-edge: rgba(1, 7, 54, 1);
+  --bg-mid: rgba(8, 19, 138, 1);
+  --page-app: #0d1c42;
+  --page-box-shadow: 10px 10px 10px rgba(1, 7, 54, 1);
+  --page-font: #e4e9f5;
+  --page-h1: #fcf1d0;
+  --page-controls: #0d1c42;
+  --page-controls-text: #e4e9f5;
+  --page-controls-border: #22396f;
+  --page-controls-hover: #010736;
+  --page-controls-hover-text: #ffffff;
+  --gain: #4ade80;
+  --loss: #f87171;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    90deg,
+    var(--bg-edge) 0%,
+    var(--bg-mid) 50%,
+    var(--bg-edge) 100%
+  );
+  gap: 16px;
+  padding: 16px;
+  transition:
+    --bg-edge 0.4s ease,
+    --bg-mid 0.4s ease;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  background-color: var(--page-app);
+  color: var(--page-font);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 20px;
+  box-shadow: var(--page-box-shadow);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+h1 {
+  font-style: italic;
+  color: var(--page-h1);
+  font-size: 3.5rem;
+  transition: color 0.4s ease;
+}
+
+h2 {
+  color: var(--page-h1);
+  transition: color 0.4s ease;
+}
+
+.app button,
+.app input,
+.app select {
+  background-color: var(--page-controls);
+  color: var(--page-controls-text);
+  border: var(--page-controls-border) 2px solid;
+  border-radius: 20px;
+  padding: 10px;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.2s ease;
+}
+
+.app button {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.app button:hover {
+  background-color: var(--page-controls-hover);
+  color: var(--page-controls-hover-text);
+  transform: scale(1.05);
+}
+
+.app li {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.app li button {
+  margin-left: 12px;
+}
+
+.app .finalResult {
+  text-align: center;
+  font-size: 1.5rem;
+  text-decoration: underline 1px;
+  color: var(--page-h1);
+  font-weight: bold;
+  transition: color 0.4s ease;
+}
+
+.app .finalResult.gain {
+  color: var(--gain);
+}
+
+.app .finalResult.loss {
+  color: var(--loss);
+}
