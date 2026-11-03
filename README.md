@@ -2,6 +2,8 @@
 
 A React application that calculates how much money converted into a foreign currency on a specific date in the past would be worth today.
 
+## [Live Demo](rate-rewind.vercel.app)
+
 ## Features
 
 - Fetching historical and current exchange rates from the NBP API (National Bank of Poland).
